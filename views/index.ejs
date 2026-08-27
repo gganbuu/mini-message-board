@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Index Page</title>
+</head>
+<body>
+    <section class="message-window">
+        <button class="add-chat-button">Add to chat</button>
+        <h1> Welcome to the message board</h1>
+        <% messages.forEach(message => { %>
+            <%- include('message/message', {message: message}); %>
+        <% }) %>
+    </section>
+
+    <div class="modal none">
+        <div class="modal-content">
+            <header>
+                <h2>Add a new message</h2>
+                <button class="close-add-chat">x</button>
+            </header>
+            <%- include('new/new') %>
+        </div>
+    </div>
+</html>
+</body>
+
+
+<script>
+    const addChat = document.querySelector(".add-chat-button")
+    const closeAddChat = document.querySelector('.close-add-chat')
+    const modal = document.querySelector(".modal")
+    
+    addChat.addEventListener("click", () => {   
+        modal.classList.remove("none")
+    })
+
+    closeAddChat.addEventListener("click", () => {   
+        modal.classList.add("none")
+    })
+</script>

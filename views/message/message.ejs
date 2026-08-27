@@ -1,0 +1,8 @@
+
+<div class="message-container">
+    <p class="message-name">
+        <em> <%= message.added.toISOString().replace('T', ' ').substring(0, 19);%> &nbsp;</em>
+        <strong><%= message.user %>:</strong>
+    </p>
+    <p class="message-text"><%= message.text %></p>
+</div>
