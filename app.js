@@ -1,22 +1,10 @@
+import 'dotenv/config'
 import express from 'express'
 import path from 'node:path'
+import { messagesRouter } from './routers/messagesRouter.js'
 
 const PORT = process.env.APP_PORT || 3000;
 const app = express();
-
-
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
 
 // setting views root path.  
 app.set("views", path.join(import.meta.dirname, "views"));
@@ -31,14 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 // setting views engine.
 app.set("view engine", "ejs");
 
-app.get("/", (req,res) => {
-    res.render("index", {messages: messages});
-})
+app.use("/", messagesRouter)
 
-app.post("/new", (req, res) => {
-  messages.push({ text: req.body.message , user: req.body.name, added: new Date() });
-  res.redirect("/")
-})
 
 
 app.listen(PORT, (error) => {
