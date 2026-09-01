@@ -1,7 +1,7 @@
 import express from 'express'
 import path from 'node:path'
 
-const PORT = 3000;
+const PORT = process.env.APP_PORT || 3000;
 const app = express();
 
 
