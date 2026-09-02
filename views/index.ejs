@@ -7,15 +7,17 @@
     <title>Index Page</title>
 </head>
 <body>
-    <section class="message-window">
+    <section class="messages-window">
         <button class="add-chat-button">Add to chat</button>
         <h1> Welcome to the message board</h1>
-        <% messages.forEach(message => { %>
-            <%- include('message/message', {message: message}); %>
-        <% }) %>
+        <article class="messages-flow">
+            <% messages.forEach(message => { %>
+                <%- include('message/message', {message: message}); %>
+            <% }) %>
+        </article>
     </section>
 
-    <div class="modal none">
+    <div class="modal <%= locals.modalOpen ? '' : 'none' %>">
         <div class="modal-content">
             <header>
                 <h2>Add a new message</h2>

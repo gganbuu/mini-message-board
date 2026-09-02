@@ -67,12 +67,18 @@ body {
 }
 
 /* message window */
-.message-window {
+.messages-window {
     display: flex;
     padding: 1rem;
     flex-direction: column;
     align-self: center;
     justify-self: center;
+}
+
+.messages-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .message-container {
@@ -130,6 +136,10 @@ body {
 
 textarea {
   resize: vert;
+}
+
+.error {
+  color: red;
 }
 
 
